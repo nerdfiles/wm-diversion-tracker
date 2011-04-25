@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
+<html lang="en">
 
-<div id="bin-container">
+<head>
+<meta charset="utf-8" />
+<title></title>
 
+<<<<<<< HEAD
 <div id="bin-layer" style="background: orange;">
 Bin
 <img src="_assets/_img-ui/layer-1-bin-bg.png" />
@@ -9,9 +13,164 @@ Bin
 Status
 </div>
 </div>
+=======
+<style type="text/css">
+>>>>>>> f9543f0b6439465ae869c691f5417bb49fcf09b9
 
-<div id="fill-layer">
-Fill
+body { font: 0.75em/1.5 sans-serif; }
+
+#bin-controls { text-align: center; margin: 1em 0 2em; }
+
+#bin-container { 
+    font: 18px/1.5 sans-serif;
+    -webkit-box-shadow: 0 0 1em #ccc;
+    -moz-box-shadow: 0 0 1em #ccc;
+    box-shadow: 0 0 1em #ccc;
+    position: relative; 
+    width: 295px; 
+    margin: 0 auto;
+    height: 388px; 
+    border: 1px #e0d0e0 solid; }
+    
+#bin-benchmark { 
+    background: url(_assets/_img-ui/layer-n-line.png) -95px -85px no-repeat;
+    height: 100px;
+    width: 120px;
+    padding-right: 40px;
+    text-align: right;
+    font-size: 0.8em;
+    position: absolute; 
+    top: 120px;
+    left: 89px;
+    z-index: 110; }
+    
+#bin-frame-layer { 
+    position: absolute; 
+    z-index: 100; }
+    
+    #bin-status-layer { 
+        color: orange; 
+        font-weight: bold; 
+        position: absolute; 
+        top: 220px;
+        font-size: 2em;
+        text-align: center; 
+        left: 100px;
+        width: 110px; }
+        
+#bin-fill-layer { 
+    background: #fff; 
+    position: absolute; 
+    width: 295px; 
+    height: 0px; 
+    z-index: 90; 
+    bottom: 0   ; }
+    
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+    var total = 235,
+        totalp = 100,
+        initVal = total; // 0 = 0, 30 = ~1%, 35 = ~5%, 45 = ~10%, ..., 235 = ~100
+        
+    $('#bin-container').bind('loadBin', function(e, param1) {
+    
+        var newSet = param1;
+    
+        var newVal = ((total/totalp) * parseInt(newSet)),
+            
+            i = parseInt($('#bin-status-layer .val').text());
+            
+            if ( parseInt(i) == parseInt(newSet) ) {
+                return false;
+            }
+            
+            if (i < newSet) {
+                var id = setInterval(function() {
+                
+                    $('#bin-status-layer .val').text((i+1));
+                
+                    i = i + 1;
+                
+                    if (i === parseInt(newSet)) {
+                        clearInterval(id);
+                    }
+                    
+                    }, (35)
+                
+                );
+            } else {
+                var id = setInterval(function() {
+                
+                    $('#bin-status-layer .val').text((i-1));
+                
+                    i = i - 1;
+                
+                    if (i === parseInt(newSet)) {
+                        clearInterval(id);
+                    }
+                    
+                    }, (35)
+                
+                );            
+            }
+    
+        $('#bin-fill-layer').css({
+            background: "#00623e"
+        }).animate({
+            height: [(15+newVal) + "px", "swing"]
+        }, 1300, function() {
+            
+        });
+    
+    });
+        
+    $('a[data-binp]').bind('click', function(e, param1) {
+    
+        var newSet = ($(this).attr('data-binp')) ? $(this).attr('data-binp') : param1;
+        
+        $('#bin-container').trigger('loadBin', newSet);
+        
+        e.preventDefault();
+        
+    });
+    
+    $('#bin-container').trigger('loadBin', 89);
+
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="bin-controls">
+<a href="#set-25" data-binp="0" class="set-bin">Set to 0%</a>
+<a href="#set-25" data-binp="25" class="set-bin">Set to 25%</a>
+<a href="#set-33" data-binp="33" class="set-bin">Set to 33%</a>
+<a href="#set-75" data-binp="75" class="set-bin">Set to 75%</a>
+<a href="#set-100" data-binp="100" class="set-bin">Set to 100%</a>
 </div>
 
-</div>
+<div id="bin-container">
+
+    <div id="bin-benchmark">
+        <span>XX% blah blah</span>
+    </div><!-- #benchmark -->
+    
+    <div id="bin-frame-layer">
+        <img src="_assets/_img-ui/layer-1-bin-bg.png" alt="XX% onload" />
+        <div id="bin-status-layer">
+            <span class="status"><span class="val">0</span>%</span>
+        </div><!-- #status-layer -->
+    </div><!-- #bin-layer -->
+    
+    <div id="bin-fill-layer"></div><!-- #fill-layer -->
+
+</div><!-- #bin-container -->
+
+</body>
+</html>
