@@ -1,0 +1,123 @@
+/**
+ * WM Diversion Tracker - Animated Bin
+ *
+ * Animated recycling bin for representing recycled waste per building.
+ *
+ * @author          aalexan1
+ * @project         wm-diversion-tracker
+ * @package         wm-redesign
+ * @lastmodified    04-26-2011 3:45PM
+ * @version         0.0.1
+ *
+ * @tested-for      chrome10.x,opera10.x,ie7,ie8,ff3.6.x
+ * @css-for         all
+ */
+ 
+body { font: 0.75em/1.5 sans-serif; }
+
+#bin-controls { text-align: center; margin: 1em 0 2em; }
+
+#bin-container { 
+    font: 18px/1.5 sans-serif;
+    -webkit-box-shadow: 0 0 1em #ccc;
+    -moz-box-shadow: 0 0 1em #ccc;
+    box-shadow: 0 0 1em #ccc;
+    position: relative; 
+    outline: 1px red solid;
+    width: 200px; 
+    margin: 0 auto;
+    height: 395px; 
+    border: 1px #e0d0e0 solid; }
+    
+#bin-target { 
+    /*background: url(../_assets/_img-ui/layer-n-line.png) -95px -85px no-repeat;*/
+    background: #fff;
+    width: 171px;
+    text-align: right;
+    font-size: 0.8em;
+    position: absolute; 
+    top: 110px;
+    left: 0px;
+    z-index: 110;
+    padding-right: 12px }
+    
+    #bin-target span.label { 
+        position: absolute; 
+        right: 55px; 
+        top: -5px; 
+        z-index: 120; 
+        color: #006a3c; 
+        font-size: 1em;
+        font-variant: small-caps;
+        text-transform: lowercase; }
+    
+    #bin-target span.val { 
+        position: relative; 
+        z-index: 110; 
+        display: inline-block;
+        *zoom: 1;
+        *display: inline; 
+        background: #fff; }
+    
+    #bin-target-line {
+        position: absolute; 
+        border: .25em #a9d15a solid; 
+        border-left: 0;
+        /*height: 90px;*/ /* 33px = 100%, 241px = 0% */ 
+        height: 0;
+        width: 10px; 
+        right: -10px; 
+        top: 9px;
+        z-index: 90;
+        margin-bottom: 10px; }
+        
+    #bin-target-line-head {
+        background: url(http://dummyimage.com/20x20/a9d15a/fff) bottom left no-repeat;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        bottom: -9px;
+        right: 5px;
+        z-index: 9000;
+    }
+    
+#bin-frame-layer { 
+    position: absolute; 
+    z-index: 100; 
+    clip: rect( 0px, 200px, 395px, 0px ); }
+    
+    #bin-frame-layer img { position: relative; left: -55px; }
+    
+    #bin-status-layer { 
+        color: #7ab800; 
+        font-weight: bold; 
+        position: absolute; 
+        top: 220px;
+        font-size: 42px;
+        width: 200px;
+        text-align: center;
+        z-index: 150; }
+        
+    #bin-status-layer .status {
+        position: relative;
+        z-index: 110;
+    }
+        
+    #bin-status-layer .status-shadow { 
+        display: none;
+        position: absolute; 
+        left: 0;
+        width: 200px;
+        font-size: 1.05em;
+        font-weight: bold;
+        z-index: 100;
+        color: #fff; }
+        
+#bin-fill-layer { 
+    background: #fff; 
+    position: absolute; 
+    width: 199px; 
+    height: 0px; 
+    z-index: 90; 
+    bottom: 0;
+    left: 1px; }
