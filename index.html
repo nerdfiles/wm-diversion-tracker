@@ -17,12 +17,13 @@ body { font: 0.75em/1.5 sans-serif; }
     -moz-box-shadow: 0 0 1em #ccc;
     box-shadow: 0 0 1em #ccc;
     position: relative; 
-    width: 297px; 
+    outline: 1px red solid;
+    width: 200px; 
     margin: 0 auto;
     height: 395px; 
     border: 1px #e0d0e0 solid; }
     
-#bin-benchmark { 
+#bin-target { 
     background: url(_assets/_img-ui/layer-n-line.png) -95px -85px no-repeat;
     height: 100px;
     width: 120px;
@@ -36,7 +37,10 @@ body { font: 0.75em/1.5 sans-serif; }
     
 #bin-frame-layer { 
     position: absolute; 
-    z-index: 100; }
+    z-index: 100; 
+    clip: rect(0px,200px,395px,0px); }
+    
+    #bin-frame-layer img { position: relative; left: -55px; }
     
     #bin-status-layer { 
         color: #7ab800; 
@@ -45,13 +49,12 @@ body { font: 0.75em/1.5 sans-serif; }
         top: 220px;
         font-size: 2.2em;
         text-align: center; 
-        left: 100px;
-        width: 110px; }
+        width: 200px; }
         
 #bin-fill-layer { 
     background: #fff; 
     position: absolute; 
-    width: 295px; 
+    width: 199px; 
     height: 0px; 
     z-index: 90; 
     bottom: 0;
@@ -129,7 +132,7 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin', 50);
+    $('#bin-container').trigger('loadBin', 90);
 
 });
 </script>
@@ -146,11 +149,13 @@ $(function() {
 <a href="#set-100" data-binp="100" class="set-bin">Set to 100%</a>
 </div>
 
+<div class="container">
+
 <div id="bin-container">
 
-    <div id="bin-benchmark">
+    <div id="bin-target">
         <span>XX% blah blah</span>
-    </div><!-- #benchmark -->
+    </div><!-- #target -->
     
     <div id="bin-frame-layer">
         <img src="_assets/_img-ui/layer-1-bin-bg.png" alt="XX% onload" />
@@ -162,6 +167,8 @@ $(function() {
     <div id="bin-fill-layer"></div><!-- #fill-layer -->
 
 </div><!-- #bin-container -->
+
+</div><!-- .container -->
 
 </body>
 </html>
