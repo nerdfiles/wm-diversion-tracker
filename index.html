@@ -68,11 +68,11 @@ $(function() {
         
     $('#bin-container').bind('loadBin', function(e, param1) {
     
-        var newSet = param1;
-    
-        var newVal = ((total/totalp) * parseInt(newSet)),
-            
-            i = parseInt($('#bin-status-layer .val').text());
+        var newSet = param1,
+            newVal = ((total/totalp) * parseInt(newSet)),
+            $val = $('#bin-status-layer .val'),
+            $fillLayer = $('#bin-fill-layer'),
+            i = parseInt($val.text());
             
             if ( parseInt(i) == parseInt(newSet) ) {
                 return false;
@@ -81,7 +81,7 @@ $(function() {
             if (i < newSet) {
                 var id = setInterval(function() {
                 
-                    $('#bin-status-layer .val').text((i+1));
+                    $val.text((i+1));
                 
                     i = i + 1;
                 
@@ -95,7 +95,7 @@ $(function() {
             } else {
                 var id = setInterval(function() {
                 
-                    $('#bin-status-layer .val').text((i-1));
+                    $val.text((i-1));
                 
                     i = i - 1;
                 
@@ -108,11 +108,11 @@ $(function() {
                 );            
             }
     
-        $('#bin-fill-layer').css({
+        $fillLayer.css({
             background: "#00623e"
         }).animate({
             height: [(15+newVal) + "px", "swing"]
-        }, 1300, function() {
+        }, 1000, function() {
             
         });
     
