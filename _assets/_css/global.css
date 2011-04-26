@@ -23,7 +23,6 @@ body { font: 0.75em/1.5 sans-serif; }
     -moz-box-shadow: 0 0 1em #ccc;
     box-shadow: 0 0 1em #ccc;
     position: relative; 
-    outline: 1px red solid;
     width: 200px; 
     margin: 0 auto;
     height: 395px; 
@@ -41,6 +40,12 @@ body { font: 0.75em/1.5 sans-serif; }
     z-index: 110;
     padding-right: 12px }
     
+    #bin-target-value { 
+        background: #fff; 
+        position: relative; 
+        z-index: 130; 
+        padding-right: 10px; }
+    
     #bin-target span.label { 
         position: absolute; 
         right: 55px; 
@@ -52,6 +57,7 @@ body { font: 0.75em/1.5 sans-serif; }
         text-transform: lowercase; }
     
     #bin-target span.val { 
+        font-weight: bold;
         position: relative; 
         z-index: 110; 
         display: inline-block;
@@ -61,24 +67,18 @@ body { font: 0.75em/1.5 sans-serif; }
     
     #bin-target-line {
         position: absolute; 
-        border: .25em #a9d15a solid; 
-        border-left: 0;
         /*height: 90px;*/ /* 33px = 100%, 241px = 0% */ 
         height: 0;
-        width: 10px; 
+        width: 30px; 
         right: -10px; 
         top: 9px;
         z-index: 90;
         margin-bottom: 10px; }
         
     #bin-target-line-head {
-        background: url(http://dummyimage.com/20x20/a9d15a/fff) bottom left no-repeat;
-        width: 16px;
-        height: 16px;
-        position: absolute;
-        bottom: -9px;
-        right: 5px;
-        z-index: 9000;
+        background: url(http://dummyimage.com/30x20/000/fff) bottom left no-repeat;
+        width: 30px;
+        height: 20px;
     }
     
 #bin-frame-layer { 

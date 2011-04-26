@@ -7,6 +7,7 @@ $(function() {
     $('#bin-container').bind('loadBin', function(e, param1, param2) {
     
         var newSet = param1,
+            newTarget = parseInt(param2),
             newVal = ((total/totalp) * parseInt(newSet)),
             $val = $('#bin-status-layer .status .val'),
             $valS = $('#bin-status-layer .status-shadow .val'),
@@ -21,8 +22,8 @@ $(function() {
             
             $targetVal.text(param2);
             
-            $targetLine.animate({
-                height: ['200px', 'linear']
+            $targetLine.find('#bin-target-line-body').animate({
+                height: [(12+(total-((newTarget/totalp)*total)))+'px', 'linear']
             }, 1500);
             
             if (i < newSet) {
@@ -77,6 +78,6 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin', [90, 30]);
+    $('#bin-container').trigger('loadBin', [40, 90]);
 
 });
