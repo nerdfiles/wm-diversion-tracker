@@ -6,8 +6,8 @@
  * @author          aalexan1
  * @project         wm-diversion-tracker
  * @package         wm-redesign
- * @lastmodified    04-27-2011 7:08AM
- * @version         0.0.1
+ * @lastmodified    04-28-2011 10:47AM
+ * @version         0.0.2
  *
  * @tested-for      chrome10.x,opera10.x,ie7,ie8,ff3.6.x
  * @js-for          all
@@ -36,7 +36,7 @@ $(function() {
             fillLayerHeight = (15+newVal);
             
         function setActual() {
-        
+                
             var $val = $('#bin-status-layer .status .val'),
                 $valS = $('#bin-status-layer .status-shadow .val'),
                 i = parseInt($val.text());
@@ -115,7 +115,7 @@ $(function() {
             
         if ( e.namespace === "load" ) {
             
-            $targetVal.text(actual);
+            $targetVal.text(target);
         
             $targetLine.find('#bin-target-line-body').delay(targetDelay).animate({
             
@@ -137,6 +137,6 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin.load', [50, 50]);
+    $('#bin-container').trigger('loadBin.load', [60, 50]);
 
 });
