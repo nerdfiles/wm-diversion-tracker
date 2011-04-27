@@ -76,16 +76,16 @@ body { font: 0.75em/1.5 sans-serif; }
         z-index: 90;
         margin-bottom: 10px; }
         
-    #bin-target-line-base { border-top: 3px #a9d15a solid; }
+    #bin-target-line-base { border-top: 3px #77ba43 solid; }
     
     #bin-target-line-body { 
         height: 10px; /* Starting Height */ 
-        border-right: 3px #a9d15a solid; }
+        border-right: 3px #77ba43 solid; }
         
     #bin-target-line-head {
-        background: url(http://dummyimage.com/30x20/000/fff) bottom left no-repeat;
+        background: url("../_img-ui/layer-n-arrow.png") bottom right no-repeat;
         width: 30px;
-        height: 20px; }
+        height: 19px; }
     
 #bin-frame-layer { 
     position: absolute; 
