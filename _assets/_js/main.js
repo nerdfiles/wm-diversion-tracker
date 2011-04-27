@@ -21,7 +21,8 @@ $(function() {
         targetDelay = 0,
         fillDelay = 0,
         fillSpeed = 0,
-        percentageDelay = 0;
+        percentageDelay = 0,
+        lineDelay = 0;
         
     $('#bin-container').bind('loadBin.click.load', function(e, actual, target) {
            
@@ -30,7 +31,9 @@ $(function() {
             newVal = ((total/totalp) * parseInt(newSet)),
             $targetVal = $('#bin-target .val'),
             $targetLine = $('#bin-target-line'),
-            $fillLayer = $('#bin-fill-layer');
+            $fillLayer = $('#bin-fill-layer'),
+            targetLineHeight = (13+(total-((newTarget/totalp)*total))),
+            fillLayerHeight = (15+newVal);
             
         function setActual() {
         
@@ -75,8 +78,6 @@ $(function() {
             }
         
         }
-             
-        $targetVal.text(actual);
         
         if ( e.namespace === "load" ) {
         
@@ -84,6 +85,7 @@ $(function() {
             fillDelay = 1000;
             fillSpeed = 2000;
             percentageDelay = 1000;
+            lineDelay = 2000;
         
         } else {
         
@@ -91,30 +93,37 @@ $(function() {
             fillDelay = 0;
             fillSpeed = 1000;
             percentageDelay = 0;
+            lineDelay = null; // no load value
         
         }
+            
+        if ( e.namespace === "load" || e.namespace === "click" ) {
         
-        window.setTimeout(function() {
-            
-            setActual();
-            
-        }, percentageDelay);
-            
-        $fillLayer.delay(fillDelay).addClass('filled').animate({
-        
-            height: [(15+newVal) + "px", "easeOutExpo"]
-            
-        }, fillSpeed, function() {
-
-        });
+            window.setTimeout(function() {
                 
-        $targetLine.find('#bin-target-line-body').delay(targetDelay).animate({
-        
-            height: [(13+(total-((newTarget/totalp)*total)))+'px', 'easeOutBack']
+                setActual();
                 
-        }, 2000, function() {
+            }, percentageDelay);
+            
+            $fillLayer.delay(fillDelay).addClass('filled').animate({
+            
+                height: [ fillLayerHeight + 'px', 'easeOutExpo']
+                
+            }, fillSpeed);
         
-        });
+        }
+            
+        if ( e.namespace === "load" ) {
+            
+            $targetVal.text(actual);
+        
+            $targetLine.find('#bin-target-line-body').delay(targetDelay).animate({
+            
+                height: [ targetLineHeight + 'px', 'easeOutBack']
+                    
+            }, lineDelay);
+            
+        }
     
     });
         
