@@ -1,6 +1,6 @@
 $(function() {
 
-    var total = 237,
+    var total = 214,
         totalp = 100,
         initVal = total, // 0 = 0, 30 = ~1%, 35 = ~5%, 45 = ~10%, ..., 235 = ~100
         targetDelay = 0,
@@ -115,6 +115,6 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin.load', [80, 40]);
+    $('#bin-container').trigger('loadBin.load', [50, 70]);
 
 });
