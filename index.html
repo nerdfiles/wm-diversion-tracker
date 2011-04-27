@@ -15,12 +15,12 @@
 <body>
 
 <div id="bin-controls">
-<a href="#set-25" data-binp="0" class="set-bin">Set to 0%</a>
-<a href="#set-25" data-binp="25" class="set-bin">Set to 25%</a>
-<a href="#set-33" data-binp="33" class="set-bin">Set to 33%</a>
-<a href="#set-75" data-binp="75" class="set-bin">Set to 75%</a>
-<a href="#set-100" data-binp="100" class="set-bin">Set to 100%</a>
-</div>
+<a href="#set-0" data-actual="0" class="set-actual">Set to 0%</a>
+<a href="#set-25" data-actual="25" class="set-actual">Set to 25%</a>
+<a href="#set-33" data-actual="33" class="set-actual">Set to 33%</a>
+<a href="#set-75" data-actual="75" class="set-actual">Set to 75%</a>
+<a href="#set-100" data-actual="100" class="set-actual">Set to 100%</a>
+</div><!-- @bin-controls -->
 
 <div class="container">
 
@@ -29,7 +29,7 @@
     <div id="bin-target">
         <div id="bin-target-value">
             <span class="label">Target</span>
-            <span class="val">XX</span>%
+            <span class="val">0</span>%
         </div>
         <div id="bin-target-line">
             <div id="bin-target-line-base"></div>
@@ -47,10 +47,11 @@
             <span class="status-shadow">
                 <span class="val">0</span>%
             </span>
-        </div><!-- #status-layer -->
-    </div><!-- #bin-layer -->
+        </div>
+    </div><!-- #bin-frame-layer -->
     
-    <div id="bin-fill-layer"></div><!-- #fill-layer -->
+    <div id="bin-fill-layer">
+    </div><!-- #fill-layer -->
 
 </div><!-- #bin-container -->
 

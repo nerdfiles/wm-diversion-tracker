@@ -1,5 +1,5 @@
 /**
- * WM Diversion Tracker - Animated Bin
+ * global.css for WM Diversion Tracker - Animated Bin
  *
  * Animated recycling bin for representing recycled waste per building.
  *
@@ -96,7 +96,7 @@ body { font: 0.75em/1.5 sans-serif; }
     top: 120px;
     font-size: 42px;
     width: 185px;
-    text-shadow: -1px -1px 0px #f3f2ec;
+    /*text-shadow: -1px -1px 0px #f3f2ec;*/
     text-align: center;
     z-index: 150; }
         

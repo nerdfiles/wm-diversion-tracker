@@ -1,3 +1,18 @@
+/**
+ * main.js for WM Diversion Tracker - Animated Bin
+ *
+ * Animated recycling bin for representing recycled waste per building.
+ *
+ * @author          aalexan1
+ * @project         wm-diversion-tracker
+ * @package         wm-redesign
+ * @lastmodified    04-27-2011 7:08AM
+ * @version         0.0.1
+ *
+ * @tested-for      chrome10.x,opera10.x,ie7,ie8,ff3.6.x
+ * @js-for          all
+ */
+ 
 $(function() {
 
     var total = 214,
@@ -8,16 +23,16 @@ $(function() {
         fillSpeed = 0,
         percentageDelay = 0;
         
-    $('#bin-container').bind('loadBin.click.load', function(e, param1, param2) {
+    $('#bin-container').bind('loadBin.click.load', function(e, actual, target) {
            
-        var newSet = param1,
-            newTarget = parseInt(param2),
+        var newSet = actual,
+            newTarget = parseInt(target),
             newVal = ((total/totalp) * parseInt(newSet)),
             $targetVal = $('#bin-target .val'),
             $targetLine = $('#bin-target-line'),
             $fillLayer = $('#bin-fill-layer');
             
-        function func() {
+        function setActual() {
         
             var $val = $('#bin-status-layer .status .val'),
                 $valS = $('#bin-status-layer .status-shadow .val'),
@@ -61,7 +76,7 @@ $(function() {
         
         }
              
-        $targetVal.text(param2);
+        $targetVal.text(actual);
         
         if ( e.namespace === "load" ) {
         
@@ -80,7 +95,9 @@ $(function() {
         }
         
         window.setTimeout(function() {
-            func();
+            
+            setActual();
+            
         }, percentageDelay);
             
         $fillLayer.delay(fillDelay).css({
@@ -105,9 +122,9 @@ $(function() {
     
     });
         
-    $('a[data-binp]').bind('click', function(e, param1) {
+    $('a[data-actual]').bind('click', function(e, actual) {
     
-        var newSet = ($(this).attr('data-binp')) ? $(this).attr('data-binp') : param1;
+        var newSet = ($(this).attr('data-actual')) ? $(this).attr('data-actual') : actual;
         
         $('#bin-container').trigger('loadBin.click', newSet);
         
