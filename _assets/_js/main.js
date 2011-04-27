@@ -122,7 +122,7 @@ $(function() {
     
         var newSet = ($(this).attr('data-actual')) ? $(this).attr('data-actual') : actual;
         
-        $('#bin-container').trigger('loadBin.click', newSet);
+        $('#bin-container').trigger('loadBin.click', [newSet]);
         
         e.preventDefault();
         
