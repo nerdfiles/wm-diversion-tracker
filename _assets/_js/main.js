@@ -120,7 +120,7 @@ $(function() {
         
     $('a[data-actual]').bind('click', function(e, actual) {
     
-        var newSet = ($(this).attr('data-actual')) ? $(this).attr('data-actual') : actual;
+        var newSet = ($(this).attr('data-actual')) ? parseInt($(this).attr('data-actual')) : parseInt(actual);
         
         $('#bin-container').trigger('loadBin.click', [newSet]);
         
