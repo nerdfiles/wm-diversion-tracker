@@ -2,29 +2,30 @@ $(function() {
 
     var total = 237,
         totalp = 100,
-        initVal = total; // 0 = 0, 30 = ~1%, 35 = ~5%, 45 = ~10%, ..., 235 = ~100
+        initVal = total, // 0 = 0, 30 = ~1%, 35 = ~5%, 45 = ~10%, ..., 235 = ~100
+        targetDelay = 0,
+        fillDelay = 0,
+        fillSpeed = 0,
+        percentageDelay = 0;
         
-    $('#bin-container').bind('loadBin', function(e, param1, param2) {
-    
+    $('#bin-container').bind('loadBin.click.load', function(e, param1, param2) {
+           
         var newSet = param1,
             newTarget = parseInt(param2),
             newVal = ((total/totalp) * parseInt(newSet)),
-            $val = $('#bin-status-layer .status .val'),
-            $valS = $('#bin-status-layer .status-shadow .val'),
             $targetVal = $('#bin-target .val'),
             $targetLine = $('#bin-target-line'),
-            $fillLayer = $('#bin-fill-layer'),
-            i = parseInt($val.text());
+            $fillLayer = $('#bin-fill-layer');
             
+        function func() {
+        
+            var $val = $('#bin-status-layer .status .val'),
+                $valS = $('#bin-status-layer .status-shadow .val'),
+                i = parseInt($val.text());
+                
             if ( parseInt(i) == parseInt(newSet) ) {
                 return false;
             }
-            
-            $targetVal.text(param2);
-            
-            $targetLine.find('#bin-target-line-body').animate({
-                height: [(12+(total-((newTarget/totalp)*total)))+'px', 'linear']
-            }, 1500);
             
             if (i < newSet) {
                 var id = setInterval(function() {
@@ -57,13 +58,49 @@ $(function() {
                 
                 );            
             }
-    
-        $fillLayer.css({
-            background: "#00623e"
-        }).animate({
-            height: [(15+newVal) + "px", "swing"]
-        }, 1000, function() {
+        
+        }
+             
+        $targetVal.text(param2);
+        
+        if ( e.namespace === "load" ) {
+        
+            targetDelay = 1000;
+            fillDelay = 1000;
+            fillSpeed = 2000;
+            percentageDelay = 1000;
+        
+        } else {
+        
+            targetDelay = 0;
+            fillDelay = 0;
+            fillSpeed = 1000;
+            percentageDelay = 0;
+        
+        }
+        
+        window.setTimeout(function() {
+            func();
+        }, percentageDelay);
             
+        $fillLayer.delay(fillDelay).css({
+            
+            background: "#00623e"
+            
+        }).animate({
+        
+            height: [(15+newVal) + "px", "easeOutExpo"]
+            
+        }, fillSpeed, function() {
+
+        });
+                
+        $targetLine.find('#bin-target-line-body').delay(targetDelay).animate({
+        
+            height: [(11+(total-((newTarget/totalp)*total)))+'px', 'easeOutBack']
+                
+        }, 2000, function() {
+        
         });
     
     });
@@ -72,12 +109,12 @@ $(function() {
     
         var newSet = ($(this).attr('data-binp')) ? $(this).attr('data-binp') : param1;
         
-        $('#bin-container').trigger('loadBin', newSet);
+        $('#bin-container').trigger('loadBin.click', newSet);
         
         e.preventDefault();
         
     });
     
-    $('#bin-container').trigger('loadBin', [40, 90]);
+    $('#bin-container').trigger('loadBin.load', [80, 40]);
 
 });

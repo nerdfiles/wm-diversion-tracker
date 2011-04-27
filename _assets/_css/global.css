@@ -44,6 +44,7 @@ body { font: 0.75em/1.5 sans-serif; }
         background: #fff; 
         position: relative; 
         z-index: 130; 
+        height: 0;
         padding-right: 10px; }
     
     #bin-target span.label { 
@@ -74,6 +75,10 @@ body { font: 0.75em/1.5 sans-serif; }
         top: 9px;
         z-index: 90;
         margin-bottom: 10px; }
+        
+    #bin-target-line-base { border-top: 3px #a9d15a solid; }
+    
+    #bin-target-line-body { height: 35px; border-right: 3px #a9d15a solid; }
         
     #bin-target-line-head {
         background: url(http://dummyimage.com/30x20/000/fff) bottom left no-repeat;
