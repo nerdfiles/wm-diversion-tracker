@@ -100,11 +100,7 @@ $(function() {
             
         }, percentageDelay);
             
-        $fillLayer.delay(fillDelay).css({
-            
-            background: "#00623e"
-            
-        }).animate({
+        $fillLayer.delay(fillDelay).addClass('filled').animate({
         
             height: [(15+newVal) + "px", "easeOutExpo"]
             
