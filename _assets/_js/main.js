@@ -110,7 +110,7 @@ $(function() {
                 
         $targetLine.find('#bin-target-line-body').delay(targetDelay).animate({
         
-            height: [(11+(total-((newTarget/totalp)*total)))+'px', 'easeOutBack']
+            height: [(13+(total-((newTarget/totalp)*total)))+'px', 'easeOutBack']
                 
         }, 2000, function() {
         
