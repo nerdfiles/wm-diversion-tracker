@@ -115,6 +115,6 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin.load', [50, 70]);
+    $('#bin-container').trigger('loadBin.load', [50, 50]);
 
 });

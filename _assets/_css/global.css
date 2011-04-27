@@ -30,27 +30,25 @@ body { font: 0.75em/1.5 sans-serif; }
     
 #bin-target { 
     /*background: url(../_assets/_img-ui/layer-n-line.png) -95px -85px no-repeat;*/
-    background: #fff;
-    width: 171px;
     text-align: right;
     font-size: 0.8em;
     position: absolute; 
     top: 10px;
-    left: -5px;
-    z-index: 110;
-    padding-right: 12px }
+    left: 0;
+    width: 175px;
+    z-index: 110; 
+    padding: 0 25px 0 0; }
     
     #bin-target-value { 
-        background: #fff; 
         position: relative; 
-        z-index: 130; 
-        height: 0;
+        z-index: 130;
+        background: #fff; 
         padding-right: 10px; }
     
     #bin-target span.label { 
         position: absolute; 
-        right: 55px; 
         top: -5px; 
+        right: 50px;
         z-index: 120; 
         color: #006a3c; 
         font-size: 1em;
@@ -61,9 +59,6 @@ body { font: 0.75em/1.5 sans-serif; }
         font-weight: bold;
         position: relative; 
         z-index: 110; 
-        display: inline-block;
-        *zoom: 1;
-        *display: inline; 
         background: #fff; }
     
     #bin-target-line {
@@ -71,20 +66,21 @@ body { font: 0.75em/1.5 sans-serif; }
         /*height: 90px;*/ /* 33px = 100%, 241px = 0% */ 
         height: 0;
         width: 30px; 
-        right: -10px; 
+        right: 10px; 
         top: 9px;
         z-index: 90;
         margin-bottom: 10px; }
         
     #bin-target-line-base { border-top: 3px #a9d15a solid; }
     
-    #bin-target-line-body { height: 35px; border-right: 3px #a9d15a solid; }
+    #bin-target-line-body { 
+        height: 10px; /* Starting Height */ 
+        border-right: 3px #a9d15a solid; }
         
     #bin-target-line-head {
         background: url(http://dummyimage.com/30x20/000/fff) bottom left no-repeat;
         width: 30px;
-        height: 20px;
-    }
+        height: 20px; }
     
 #bin-frame-layer { 
     position: absolute; 
@@ -93,20 +89,20 @@ body { font: 0.75em/1.5 sans-serif; }
     
     #bin-frame-layer img { position: relative; left: -65px; top: -110px; }
     
-    #bin-status-layer { 
-        color: #7ab800; 
-        font-weight: bold; 
-        position: absolute; 
-        top: 120px;
-        font-size: 42px;
-        width: 200px;
-        text-align: center;
-        z-index: 150; }
+#bin-status-layer { 
+    color: #7ab800; 
+    font-weight: bold; 
+    position: absolute; 
+    top: 120px;
+    font-size: 42px;
+    width: 185px;
+    text-shadow: -1px -1px 0px #f3f2ec;
+    text-align: center;
+    z-index: 150; }
         
     #bin-status-layer .status {
         position: relative;
-        z-index: 110;
-    }
+        z-index: 110; }
         
     #bin-status-layer .status-shadow { 
         display: none;
