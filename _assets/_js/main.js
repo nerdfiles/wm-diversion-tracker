@@ -137,6 +137,10 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin.load', [30, 60]);
+
+    var targetValue = (-1 == -1 ? 0.75 : -1),
+        actualValue = (-1 == -1 ? 0.60 : -1);
+    
+    $('#bin-container').trigger('loadBin.load', [actualValue * 100, targetValue * 100]);
 
 });
