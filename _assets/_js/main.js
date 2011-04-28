@@ -137,6 +137,6 @@ $(function() {
         
     });
     
-    $('#bin-container').trigger('loadBin.load', [0, 60]);
+    $('#bin-container').trigger('loadBin.load', [30, 60]);
 
 });
